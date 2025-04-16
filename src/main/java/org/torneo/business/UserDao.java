@@ -1,4 +1,8 @@
 package org.torneo.business;
 
-public interface UserDao {
+import org.torneo.model.User;
+
+public interface UserDao extends GenericCrud<User, String> {
+    User findByUserName(String userName);
+    User findByTeam(String teamId);
 }
