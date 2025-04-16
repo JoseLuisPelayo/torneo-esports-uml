@@ -1,4 +1,8 @@
 package org.torneo.business;
 
-public interface TeamDao {
+import org.torneo.model.Team;
+
+public interface TeamDao extends GenericCrud<Team, String> {
+    Team findByManager(String managerId);
+
 }
