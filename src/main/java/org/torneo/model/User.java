@@ -1,0 +1,4 @@
+package org.torneo.model;
+
+public class User {
+}
