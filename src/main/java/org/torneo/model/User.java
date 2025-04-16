@@ -19,6 +19,7 @@ public class User implements Serializable {
     private String teamId;
     private String password;
     private LocalDate dateOfBirth;
+    private String userName;
 
     public User() {
     }
@@ -116,6 +117,13 @@ public class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     @Override
     public boolean equals(Object o) {
