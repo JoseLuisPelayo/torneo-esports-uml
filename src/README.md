@@ -4,7 +4,7 @@ Jose Luis García Pelayo
 Link a Github: [JoseLuisPelayo](https://github.com/JoseLuisPelayo)    
 
 ## Descripción del Proyecto
- ### 1. Análisis del problema y requisitos del sistema.  
+ ### Análisis del problema y requisitos del sistema.  
    Construcción de una plataforma en la que se organizan y gestionan torneos de e-sports, se pueden registrar managers y jugadores en la plataforma, los managers podrán invitar a los jugadores a jugar en sus equipos, y los administradores se encargan de gestionar los torneos y administrar tanto premios como castigos.
 
  #### ¿Quiénes son los actores que interactúan con el sistema?
