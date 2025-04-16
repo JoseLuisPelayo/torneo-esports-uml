@@ -11,6 +11,7 @@ public class UserDaoImplList implements UserDao {
 
     public UserDaoImplList() {
         this.users = new ArrayList<>();
+        loadData();
     }
 
     private void loadData() {
@@ -86,9 +87,9 @@ public class UserDaoImplList implements UserDao {
 
     @Override
     public int deleteOne(String id) {
-        int index = users.indexOf(id);
-        if (index != -1) {
-            users.remove(index);
+        User user = findById(id);
+        if (user != null) {
+            users.remove(user);
             return 1;
         }
         return 0;
