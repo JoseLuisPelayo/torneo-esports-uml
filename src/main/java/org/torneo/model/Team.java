@@ -12,17 +12,15 @@ public class Team implements Serializable {
 
     private String id;
     private String name;
-    private User manager;
     private List<User> members;
     private LocalDate creationDate;
 
     public Team() {
     }
 
-    public Team(String id, String name, User manager, List<User> members, LocalDate creationDate) {
+    public Team(String id, String name, List<User> members, LocalDate creationDate) {
         this.id = id;
         this.name = name;
-        this.manager = manager;
         this.members = members;
         this.creationDate = creationDate;
     }
@@ -41,14 +39,6 @@ public class Team implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public User getManager() {
-        return manager;
-    }
-
-    public void setManager(User manager) {
-        this.manager = manager;
     }
 
     public List<User> getMembers() {
@@ -84,7 +74,6 @@ public class Team implements Serializable {
         return "Team{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", manager=" + manager +
                 ", members=" + members +
                 ", creationDate=" + creationDate +
                 '}';

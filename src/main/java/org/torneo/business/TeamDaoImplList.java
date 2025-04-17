@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeamDaoImplList implements TeamDao {
-    private List<Team> teams;
-    private UserDao uDao;
+    private final List<Team> teams;
+    private final UserDao uDao;
 
     public TeamDaoImplList() {
         this.teams = new ArrayList<Team>();
@@ -17,17 +17,8 @@ public class TeamDaoImplList implements TeamDao {
     }
 
     private void loadData() {
-        teams.add(new Team("T002", "Furia", uDao.findById("U004"), uDao.findByTeam("T002"), LocalDate.of(2025,4,16)));
-    }
-
-    @Override
-    public Team findByManager(String managerId) {
-        for (Team team : teams) {
-            if (team.getManager().getId().equals(managerId)) {
-                return team;
-            }
-        }
-        return null;
+        teams.add(new Team("T002", "Furia", uDao.findByTeam("T002"), LocalDate.of(2025,4,16)));
+        teams.add(new Team("T001", "Killers",  uDao.findByTeam("T002"), LocalDate.of(2025,4,16)));
     }
 
     @Override
