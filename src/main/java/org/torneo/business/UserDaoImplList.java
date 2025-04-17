@@ -2,6 +2,7 @@ package org.torneo.business;
 
 import org.torneo.model.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +16,15 @@ public class UserDaoImplList implements UserDao {
     }
 
     private void loadData() {
-        User user1 = new User("U001", "Ana", "García", "López", "ana.garcia@example.com", "600123456", "admin", null, "pass123");
-        User user2 = new User("U002", "Luis", "Martínez", "Pérez", "luis.martinez@example.com", "600234567", "player", "T002", "secure456");
-        User user3 = new User("U003", "Marta", "Sánchez", "Ruiz", "marta.sanchez@example.com", "600345678", "player", "T002", "marta789");
-        User user4 = new User("U004", "Carlos", "Fernández", "Gómez", "carlos.fernandez@example.com", "600456789", "manager", null, "carlospass");
-        User user5 = new User("U005", "Elena", "Moreno", "Núñez", "elena.moreno@example.com", "600567890", "player", "T002", "elenasecret");
+        User user1 = new User("U001", "Ana", "García", "López",
+                "ana.garcia@example.com", "600123456", "T001", LocalDate.of(2000,3,16), "killer");
+        User user2 = new User("U002", "Luis", "Martínez", "Pérez", "luis.martinez@example.com", "600234567", "T002", LocalDate.of(2001,5,18) ,"secure456");
+        User user3 = new User("U003", "Marta", "Sánchez", "Ruiz", "marta.sanchez@example.com", "600345678", "T002", LocalDate.of(1998,5,13), "marta789");
+        User user5 = new User("U005", "Elena", "Moreno", "Núñez", "elena.moreno@example.com", "600567890",  "T002", LocalDate.of(1996,3,23),"elenasecret");
 
         users.add(user1);
         users.add(user2);
         users.add(user3);
-        users.add(user4);
         users.add(user5);
     }
 
