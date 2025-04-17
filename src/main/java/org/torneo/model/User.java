@@ -15,25 +15,11 @@ public class User implements Serializable {
     private String lName2;
     private String email;
     private String phone;
-    private String roleId;
     private String teamId;
-    private String password;
     private LocalDate dateOfBirth;
     private String userName;
 
     public User() {
-    }
-
-    public User(String id, String name, String lName1, String lName2, String email, String phone, String roleId, String teamId, String password) {
-        this.id = id;
-        this.name = name;
-        this.lName1 = lName1;
-        this.lName2 = lName2;
-        this.email = email;
-        this.phone = phone;
-        this.roleId = roleId;
-        this.teamId = teamId;
-        this.password = password;
     }
 
     public String getId() {
@@ -52,19 +38,19 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getlName1() {
+    public String getLName1() {
         return lName1;
     }
 
-    public void setlName1(String lName1) {
+    public void setLName1(String lName1) {
         this.lName1 = lName1;
     }
 
-    public String getlName2() {
+    public String getLName2() {
         return lName2;
     }
 
-    public void setlName2(String lName2) {
+    public void setLName2(String lName2) {
         this.lName2 = lName2;
     }
 
@@ -84,14 +70,6 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public String getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
     public String getTeamId() {
         return teamId;
     }
@@ -99,15 +77,6 @@ public class User implements Serializable {
     public void setTeamId(String teamId) {
         this.teamId = teamId;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -146,9 +115,9 @@ public class User implements Serializable {
                 ", lName2='" + lName2 + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", roleId='" + roleId + '\'' +
                 ", teamId='" + teamId + '\'' +
-                ", password='" + password + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 }
