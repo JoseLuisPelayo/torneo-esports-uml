@@ -1,5 +1,6 @@
 package org.torneo.business;
 
+import org.torneo.model.Player;
 import org.torneo.model.Team;
 
 import java.time.LocalDate;
@@ -8,23 +9,23 @@ import java.util.List;
 
 public class TeamDaoImplList implements TeamDao {
     private final List<Team> teams;
-    private final UserDao uDao;
+    private final PlayerDao pDao;
 
     public TeamDaoImplList() {
         this.teams = new ArrayList<Team>();
-        this.uDao = new UserDaoImplList();
+        this.pDao = new PlayerDaoImplList();
         loadData();
     }
 
     private void loadData() {
-        teams.add(new Team("T002", "Furia", uDao.findByTeam("T002"), LocalDate.of(2025,4,16)));
-        teams.add(new Team("T001", "Killers",  uDao.findByTeam("T002"), LocalDate.of(2025,4,16)));
+        teams.add(new Team("Furia", LocalDate.of(2025,4,16)));
+        teams.add(new Team( "Killers", LocalDate.of(2025,4,16)));
     }
 
     @Override
-    public Team findById(String id) {
+    public Team findById(String teamName) {
         for (Team team : teams) {
-            if (team.getId().equals(id)) {
+            if (team.getName().equals(teamName)) {
                 return team;
             }
         }
@@ -56,12 +57,26 @@ public class TeamDaoImplList implements TeamDao {
     }
 
     @Override
-    public int deleteOne(String id) {
-        Team team = findById(id);
+    public int deleteOne(String teamName) {
+        Team team = findById(teamName);
         if (team != null) {
             teams.remove(team);
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public List<Player> findPlayersTeam(String teamName) {
+        List<Player> players = new ArrayList<>();
+        Team team = findById(teamName);
+
+        if (team != null) {
+            for (Player player : pDao.findAll()) {
+                if (player.getTeamName().equals(teamName))
+                    players.add(player);
+            }
+        }
+        return players;
     }
 }

@@ -5,41 +5,41 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class User implements Serializable {
+public class Player implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private String dni;
     private String name;
     private String lName1;
     private String lName2;
     private String email;
     private String phone;
-    private String teamId;
+    private String teamName;
     private LocalDate dateOfBirth;
     private String userName;
 
-    public User() {
+    public Player() {
     }
 
-    public User(String id, String name, String lName1, String lName2, String email, String phone, String teamId, LocalDate dateOfBirth, String userName) {
-        this.id = id;
+    public Player(String dni, String name, String lName1, String lName2, String email, String phone, String teamName, LocalDate dateOfBirth, String userName) {
+        this.dni = dni;
         this.name = name;
         this.lName1 = lName1;
         this.lName2 = lName2;
         this.email = email;
         this.phone = phone;
-        this.teamId = teamId;
+        this.teamName = teamName;
         this.dateOfBirth = dateOfBirth;
         this.userName = userName;
     }
 
-    public String getId() {
-        return id;
+    public String getDni() {
+        return dni;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getName() {
@@ -82,12 +82,12 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public String getTeamId() {
-        return teamId;
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public LocalDate getDateOfBirth() {
@@ -109,25 +109,25 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        Player player = (Player) o;
+        return Objects.equals(dni, player.dni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(dni);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id='" + dni + '\'' +
                 ", name='" + name + '\'' +
                 ", lName1='" + lName1 + '\'' +
                 ", lName2='" + lName2 + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", teamId='" + teamId + '\'' +
+                ", teamId='" + teamName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", userName='" + userName + '\'' +
                 '}';

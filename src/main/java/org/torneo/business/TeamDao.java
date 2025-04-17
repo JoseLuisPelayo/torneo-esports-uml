@@ -1,7 +1,10 @@
 package org.torneo.business;
 
+import org.torneo.model.Player;
 import org.torneo.model.Team;
 
-public interface TeamDao extends GenericCrud<Team, String> {
+import java.util.List;
 
+public interface TeamDao extends GenericCrud<Team, String> {
+    List<Player> findPlayersTeam(String teamName);
 }

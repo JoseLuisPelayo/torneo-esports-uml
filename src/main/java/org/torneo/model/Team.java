@@ -3,34 +3,21 @@ package org.torneo.model;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 
 public class Team implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private String id;
     private String name;
-    private List<User> members;
     private LocalDate creationDate;
 
     public Team() {
     }
 
-    public Team(String id, String name, List<User> members, LocalDate creationDate) {
-        this.id = id;
+    public Team(String name, LocalDate creationDate) {
         this.name = name;
-        this.members = members;
         this.creationDate = creationDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -39,14 +26,6 @@ public class Team implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<User> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<User> members) {
-        this.members = members;
     }
 
     public LocalDate getCreationDate() {
@@ -61,20 +40,18 @@ public class Team implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        return Objects.equals(id, team.id);
+        return Objects.equals(name, team.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(name);
     }
 
     @Override
     public String toString() {
         return "Team{" +
-                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", members=" + members +
                 ", creationDate=" + creationDate +
                 '}';
     }
