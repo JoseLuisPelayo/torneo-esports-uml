@@ -3,12 +3,17 @@ version: '4'
 services:
   mysql:
     image: mysql:8.0.40-debian
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
     container_name: torneo_AD3
     environment:
       MYSQL_ROOT_PASSWORD: jose1986
       MYSQL_DATABASE: torneo
       MYSQL_USER: jose
       MYSQL_PASSWORD: jose1986
+      LANG: C.UTF-8
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
