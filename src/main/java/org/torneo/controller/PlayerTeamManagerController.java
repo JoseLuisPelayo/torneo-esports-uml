@@ -1,9 +1,6 @@
 package org.torneo.controller;
 
-import org.torneo.business.TeamDao;
-import org.torneo.business.TeamDaoImplList;
-import org.torneo.business.PlayerDao;
-import org.torneo.business.PlayerDaoImplList;
+import org.torneo.business.*;
 import org.torneo.model.Player;
 import org.torneo.model.Team;
 
@@ -17,7 +14,7 @@ public class PlayerTeamManagerController {
 
     public PlayerTeamManagerController() {
         this.tDao = new TeamDaoImplList();
-        this.pDao = new PlayerDaoImplList();
+        this.pDao = new PlayerDaoImplMy8Jdbc();
     }
 
     public String registerTeam(String teamName) {
@@ -72,6 +69,11 @@ public class PlayerTeamManagerController {
 
         if (p.getTeamName() == null) {
             p.setTeamName(teamName);
+
+            int res = pDao.updateOne(p);
+            if (res != 1)
+                return "Ha ocurrido algun error al modificar el jugador intentelo de nuevo";
+
             return "Jugador añadido al equipo " + teamName + "correctamente";
         }
 
