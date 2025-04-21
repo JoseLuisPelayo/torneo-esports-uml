@@ -13,7 +13,7 @@ public class PlayerTeamManagerController {
     TeamDao tDao;
 
     public PlayerTeamManagerController() {
-        this.tDao = new TeamDaoImplList();
+        this.tDao = new TeamDaoImplMy8Jdbc();
         this.pDao = new PlayerDaoImplMy8Jdbc();
     }
 
