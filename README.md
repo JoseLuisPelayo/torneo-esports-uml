@@ -40,8 +40,13 @@ torneo-esports-uml/
 │ │ │ ├── utils/  
 │ │ │ ├── view/  
 │ │ │ ├── Main.java  
-│ ├─ diagrams/  
-│ ├─ README.md
+│ ├─ diagrams/
+│ ├─ test
+├─ README.md
+├─ pom.xml
+├─ .gitignore
+├─ docker-compose.yml
+├─ init.sql
 
 
 ## Instalación y Ejecución
