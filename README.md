@@ -25,9 +25,9 @@ Los Daos se encargan de la capa de persistencia proporcionando y recibiendo dato
 
 ## Diagramas UML
 ### Diagrama de Casos de Uso
-![Diagrama de casos de uso de gestion de jugadores y equipos](diagrams/cosos-uso-Gestion_equipos_jugadores.png)
+![Diagrama de casos de uso de gestion de jugadores y equipos](src/diagrams/cosos-uso-Gestion_equipos_jugadores.png)
 ### Diagrama de Clases
-![Diagrama de clases](diagrams/clases.png)
+![Diagrama de clases](src/diagrams/clases.png)
 
 ## Estructura del Proyecto
 torneo-esports-uml/  
