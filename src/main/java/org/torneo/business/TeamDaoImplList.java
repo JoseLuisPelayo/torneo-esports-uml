@@ -66,17 +66,4 @@ public class TeamDaoImplList implements TeamDao {
         return 0;
     }
 
-    @Override
-    public List<Player> findPlayersTeam(String teamName) {
-        List<Player> players = new ArrayList<>();
-        Team team = findById(teamName);
-
-        if (team != null) {
-            for (Player player : pDao.findAll()) {
-                if (player.getTeamName().equals(teamName))
-                    players.add(player);
-            }
-        }
-        return players;
-    }
 }

@@ -121,7 +121,7 @@ public class PlayerTeamManagerController {
             for (Team t : tList) {
                 res += "  #" + i + t.toString() + "\n";
                 int count = 1;
-                for (Player p: tDao.findPlayersTeam(t.getName())) {
+                for (Player p: pDao.findPlayersTeam(t.getName())) {
                     res += "    -" + count + " " + p + "\n";
                     count++;
                 }

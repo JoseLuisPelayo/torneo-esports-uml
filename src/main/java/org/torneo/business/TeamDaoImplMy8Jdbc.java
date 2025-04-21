@@ -12,36 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeamDaoImplMy8Jdbc extends AbsGenericImplMy8 implements TeamDao {
-    @Override
-    public List<Player> findPlayersTeam(String teamName) {
-        sql = "SELECT * FROM players WHERE team_name = ?";
-        List<Player> aux = new ArrayList<>();
-        Player p = null;
-
-        try {
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, teamName);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                p = new Player();
-                p.setDni(rs.getString("dni"));
-                p.setName(rs.getString("name"));
-                p.setLName1(rs.getString("l_name2"));
-                p.setEmail(rs.getString("email"));
-                p.setPhone(rs.getString("phone"));
-                p.setDateOfBirth(LocalDate.parse(rs.getString("date_of_birth")));
-                p.setUserName(rs.getString("user_name"));
-                p.setTeamName(rs.getString("team_name"));
-
-                aux.add(p);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        return aux;
-    }
 
     @Override
     public Team findById(String id) {
