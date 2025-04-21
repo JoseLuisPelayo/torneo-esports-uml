@@ -92,7 +92,9 @@ public class PlayerTeamManagerController {
             return "no existe un jugador con ese dni";
 
         p.setTeamName(null);
-        return "jugador expulsado del equipo " + teamName + "correctamente";
+        pDao.updateOne(p);
+
+        return "jugador expulsado del equipo " + teamName + " correctamente";
     }
 
     public String playersList() {

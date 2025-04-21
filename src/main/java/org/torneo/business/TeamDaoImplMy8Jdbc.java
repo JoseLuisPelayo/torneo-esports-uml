@@ -15,7 +15,7 @@ public class TeamDaoImplMy8Jdbc extends AbsGenericImplMy8 implements TeamDao {
 
     @Override
     public Team findById(String id) {
-        sql = "SELECT * FROM team WHERE id = ?";
+        sql = "SELECT * FROM team WHERE name = ?";
         Team t = null;
 
         try {
@@ -69,10 +69,10 @@ public class TeamDaoImplMy8Jdbc extends AbsGenericImplMy8 implements TeamDao {
         try {
             ps = conn.prepareStatement(sql);
             ps.setString(1, entity.getName());
-            ps.setString(2, LocalTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            ps.setString(2, LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             rows = ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return rows;
     }

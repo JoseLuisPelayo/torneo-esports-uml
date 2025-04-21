@@ -43,7 +43,7 @@ public class PlayerDaoImplMy8Jdbc extends AbsGenericImplMy8 implements PlayerDao
 
     @Override
     public Player findById(String id) {
-        sql = "select * from players where username = ?";
+        sql = "select * from players where dni = ?";
         Player p = null;
 
         try {
@@ -114,7 +114,7 @@ public class PlayerDaoImplMy8Jdbc extends AbsGenericImplMy8 implements PlayerDao
                 " team_name, " +
                 " date_of_birth," +
                 " user_name) " +
-                "values(?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         rows = 0;
 
         try {
@@ -132,7 +132,7 @@ public class PlayerDaoImplMy8Jdbc extends AbsGenericImplMy8 implements PlayerDao
 
             rows = ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         return rows;
@@ -143,11 +143,11 @@ public class PlayerDaoImplMy8Jdbc extends AbsGenericImplMy8 implements PlayerDao
         sql = "update players set " +
                 "name = ?," +
                 "l_name1 = ?," +
-                "l_name2 = ?" +
+                "l_name2 = ?," +
                 "email = ?," +
                 "phone = ?, " +
                 "team_name = ?," +
-                "date_of_bird = ?," +
+                "date_of_birth = ?," +
                 "user_name = ?" +
                 " where dni = ?";
         rows = 0;
@@ -190,5 +190,36 @@ public class PlayerDaoImplMy8Jdbc extends AbsGenericImplMy8 implements PlayerDao
         }
 
         return rows;
+    }
+
+    @Override
+    public List<Player> findPlayersTeam(String teamName) {
+        sql = "SELECT * FROM players WHERE team_name = ?";
+        List<Player> aux = new ArrayList<>();
+        Player p = null;
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, teamName);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                p = new Player();
+                p.setDni(rs.getString("dni"));
+                p.setName(rs.getString("name"));
+                p.setLName1(rs.getString("l_name2"));
+                p.setEmail(rs.getString("email"));
+                p.setPhone(rs.getString("phone"));
+                p.setDateOfBirth(LocalDate.parse(rs.getString("date_of_birth")));
+                p.setUserName(rs.getString("user_name"));
+                p.setTeamName(rs.getString("team_name"));
+
+                aux.add(p);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return aux;
     }
 }
