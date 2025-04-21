@@ -61,7 +61,7 @@ public class PlayerTeamManagerCLI {
     public void teamRegistrar() {
         System.out.println("Para registrar un nuevo equipo debe introducir su nombre.");
         String name = sc.next();
-        System.out.print(mController.registerTeam(name));
+        System.out.print(mController.registerTeam(name) + "\n\n");
         sc.nextLine();
     }
 
@@ -119,7 +119,7 @@ public class PlayerTeamManagerCLI {
                                                     phone,
                                                     teamName,
                                                     LocalDate.of(year, month, day),
-                                                    userName));
+                                                    userName) + "\n\n");
         }
         sc.nextLine();
     }
@@ -129,16 +129,16 @@ public class PlayerTeamManagerCLI {
         String dni = sc.next();
         System.out.println("introduce el nombre del equipo: ");
         String name = sc.next();
-        System.out.println(mController.removePlayerFromTeam(dni, name));
+        System.out.println(mController.removePlayerFromTeam(dni, name) + "\n\n");
         sc.nextLine();
     }
 
     public void showPlayerList() {
-        System.out.println(mController.playersList());
+        System.out.println(mController.playersList() + "\n\n");
     }
 
     public void showTeamList() {
-        System.out.println(mController.teamsList());
+        System.out.println(mController.teamsList() + "\n\n");
     }
 
 
